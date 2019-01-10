@@ -23,4 +23,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    //RelationsShip - User-Role
+    public function role(){
+        return $this->belongsTo('App\Model\Role');
+    }
 }
