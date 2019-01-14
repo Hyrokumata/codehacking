@@ -5,6 +5,11 @@
     
     <table class="table table-striped table-responsive"> 
         <thead>
+            <tr>
+                <th colspan="8">
+                    <button type="button" class="btn btn-success btn-sm pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</button>
+                </th>
+            </tr>
           <tr>
             <th>ID</th>
             <th>Name</th>
@@ -24,17 +29,24 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->role->name }}</td>
                         <td>{{ $user->email }}</td>
-                        @if ($user->is_active)
+                        {{-- @if ($user->is_active)
                             <td>Active</td>
                         @else
                             <td>Inactive</td>
-                        @endif
+                        @endif --}}
+                        <td>{{ $user->is_active == 1 ? 'Active' : 'Inactive' }}</td>
                         <td>{{ $user->created_at->diffForHumans() }}</td>
                         <td>{{ $user->updated_at->diffForHumans() }}</td>
                         <td>
-                            <i class="fa fa-eye admin-view"></i>
-                            <i class="fa fa-edit admin-edit"></i>
-                            <i class="fa fa-trash admin-delete"></i>
+                            <button type="button" class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="btn btn-warning btn-sm">
+                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                            </button>
                         </td>
                     </tr>
                 @endforeach
