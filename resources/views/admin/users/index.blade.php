@@ -7,7 +7,12 @@
         <thead>
             <tr>
                 <th colspan="8">
-                    <button type="button" class="btn btn-success btn-sm pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</button>
+                    <a href="/admin/users/create">
+                        <button type="button" class="btn btn-success btn-sm pull-right">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true">
+                            </span> Add
+                        </button>
+                    </a>
                 </th>
             </tr>
           <tr>
