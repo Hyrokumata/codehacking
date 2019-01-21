@@ -1,12 +1,11 @@
 @extends('layouts.admin');
 
 @section('content')
-    
-    <table class="table table-striped table-responsive"> 
+    <table class="table table-striped table-responsive">
         <thead>
             <tr>
-                <th colspan="8">
-                    <a href="/admin/users/create">
+                <th colspan="5">
+                    <a href="/admin/roles/create">
                         <button type="button" class="btn btn-success btn-sm pull-right">
                             <span class="glyphicon glyphicon-plus" aria-hidden="true">
                             </span> Add
@@ -14,39 +13,27 @@
                     </a>
                 </th>
             </tr>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Role</th>
-            <th>Email</th>
-            <th>Status</th>
-            <th>Created</th>
-            <th>Updated</th>
-            <th>Actions</th>
-          </tr>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Actions</th>
+            </tr>
         </thead>
         <tbody>
-            @if ($users)
-                @foreach ($users as $user)
+            @if ($roles)
+                @foreach ($roles as $role)
                     <tr>
-                        <td>{{ $user->id }}</td>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->role ? $user->role->name : 'User has no role' }}</td>
-                        <td>{{ $user->email }}</td>
-                        {{-- @if ($user->is_active)
-                            <td>Active</td>
-                        @else
-                            <td>Inactive</td>
-                        @endif --}}
-                        <td>{{ $user->is_active == 1 ? 'Active' : 'Inactive' }}</td>
-                        <td>{{ $user->created_at->diffForHumans() }}</td>
-                        <td>{{ $user->updated_at->diffForHumans() }}</td>
+                        <td>{{ $role->id }}</td>
+                        <td>{{ $role->name }}</td>
+                        <td>{{ $role->created_at ? $role->created_at->diffForHumans() : 'No Specific date' }}</td>
+                        <td>{{ $role->updated_at ? $role->updated_at->diffForHumans() : 'No Specific date' }}</td>
                         <td>
                             <button type="button" class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                             </button>
                             <button type="button" class="btn btn-warning btn-sm">
-                                <a href="admin/users/edit"></a>
                                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                             </button>
                             <button type="button" class="btn btn-danger btn-sm">
@@ -58,6 +45,4 @@
             @endif
         </tbody>
     </table>
-
-
 @endsection

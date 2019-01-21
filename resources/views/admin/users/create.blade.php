@@ -26,8 +26,8 @@
         
         {{-- Status --}}
         <div class="form-group">
-            {!! Form::label('status', 'Status:') !!}
-            {!! Form::select('status', array(1 => 'Active', 0 => 'Inactive'), null, ['class'=>'form-control']) !!}
+            {!! Form::label('is_active', 'Status:') !!}
+            {!! Form::select('is_active', array(1 => 'Active', 0 => 'Inactive'), null, ['class'=>'form-control']) !!}
         </div>{{-- EndStatus --}}
 
          {{-- File Upload --}}
@@ -35,7 +35,7 @@
             {!! Form::label('photo', 'Photo:') !!}
             {!! Form::file('photo', null, ['class'=>'form-control']) !!}
         </div>{{-- EndFileUpload --}}
-        
+
          {{-- Password --}}
          <div class="form-group">
             {!! Form::label('password', 'Password:') !!}

@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+
 use App\Http\Requests;
 use App\Model\Role;
-use App\Http\Requests\UsersRequest;
+use App\Http\Requests\RolesRequest;
 
-class AdminUsersController extends Controller
+class AdminRolesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,13 +17,9 @@ class AdminUsersController extends Controller
      */
     public function index()
     {
+        $roles = Role::all();
 
-        // Getting all users
-        $users = User::all();
-
-        // var_dump($users);
-
-        return view('admin.users.index', compact('users'));
+        return view('admin.roles.index', compact('roles'));
     }
 
     /**
@@ -33,10 +29,8 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-        // Pull out roles
-        $roles = Role::lists('name', 'id')->all();
-
-        return view('admin.users.create', compact('roles'));
+        //
+        return view('admin.roles.create');
     }
 
     /**
@@ -45,23 +39,12 @@ class AdminUsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UsersRequest $request)
+    public function store(RolesRequest $request)
     {
-        // return view('admin.users.store');
-        // return $request->all();
+        //
+        Role::create($request->all());
 
-        // $user = new User();
-
-        // $user->name = $request->name;
-        // $user->role_id = $request->role_id;
-        // $user->is_active = $request->isActive;
-        // $user->email = $request->email;
-        // $user->password = bcrypt($request->password);
-        // $user->file = new File($request->file);
-
-        User::create($request->all());
-
-        return redirect('/admin/users');
+        return redirect('/admin/roles');
     }
 
     /**
@@ -72,7 +55,8 @@ class AdminUsersController extends Controller
      */
     public function show($id)
     {
-        return view('admin.users.show');
+        //
+        return view('admin.roles.show');
     }
 
     /**
@@ -83,7 +67,9 @@ class AdminUsersController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.users.edit');
+        $role = Role::find($id);
+
+        return view('admin.roles.edit', compact('role'));
     }
 
     /**
@@ -95,7 +81,7 @@ class AdminUsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return view('admin.users.update');
+        //
     }
 
     /**
@@ -106,6 +92,6 @@ class AdminUsersController extends Controller
      */
     public function destroy($id)
     {
-        return view('admin.users.destroy');
+        //
     }
 }

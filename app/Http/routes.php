@@ -26,5 +26,6 @@ Route::get('/admin', function(){
 // Controller para AdminUsers
 Route::resource('admin/users', 'AdminUsersController');
 
-// Controller para AdminCategories
+// Controller para AdminRoles
+Route::resource('admin/roles', 'AdminRolesController');
 
