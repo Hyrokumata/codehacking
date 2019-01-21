@@ -47,18 +47,7 @@ class AdminUsersController extends Controller
      */
     public function store(UsersRequest $request)
     {
-        // return view('admin.users.store');
-        // return $request->all();
-
-        // $user = new User();
-
-        // $user->name = $request->name;
-        // $user->role_id = $request->role_id;
-        // $user->is_active = $request->isActive;
-        // $user->email = $request->email;
-        // $user->password = bcrypt($request->password);
-        // $user->file = new File($request->file);
-
+        
         User::create($request->all());
 
         return redirect('/admin/users');

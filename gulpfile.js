@@ -20,7 +20,8 @@ elixir(function(mix) {
         'libs/font-awesome.css',
         'libs/metisMenu.css',
         'libs/sb-admin-2.css',
-        'libs/styles.css'
+        'libs/styles.css',
+        'libs/myStyle.css'
     ], './public/css/libs.css')
     .scripts([
         'libs/jquery.js',

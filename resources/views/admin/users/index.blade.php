@@ -2,6 +2,7 @@
 
 @section('content')
     
+    
     <table class="table table-striped table-responsive"> 
         <thead>
             <tr>
@@ -16,6 +17,7 @@
             </tr>
           <tr>
             <th>ID</th>
+            <th>Avatar</th>
             <th>Name</th>
             <th>Role</th>
             <th>Email</th>
@@ -30,6 +32,7 @@
                 @foreach ($users as $user)
                     <tr>
                         <td>{{ $user->id }}</td>
+                        <td><img src="{{ $user->photo_id ? $user->photo_id : "/images/defaultUser.svg" }}" class="avatar"></td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->role ? $user->role->name : 'User has no role' }}</td>
                         <td>{{ $user->email }}</td>
@@ -46,7 +49,6 @@
                                 <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                             </button>
                             <button type="button" class="btn btn-warning btn-sm">
-                                <a href="admin/users/edit"></a>
                                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                             </button>
                             <button type="button" class="btn btn-danger btn-sm">

@@ -8725,4 +8725,10 @@ table.dataTable thead .sorting:after {
 {margin-top:20px;
 }
 
+.avatar{
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
 /*# sourceMappingURL=libs.css.map */

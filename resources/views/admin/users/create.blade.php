@@ -4,7 +4,7 @@
 
     <h1>Admin Users Create</h1>
 
-    {!! Form::open(['method' => 'POST', 'action' => 'AdminUsersController@store', 'file'=>true]) !!}
+    {!! Form::open(['method' => 'POST', 'action' => 'AdminUsersController@store', 'files'=>true]) !!}
 
         {{-- Name --}}
         <div class="form-group">
@@ -27,7 +27,7 @@
         {{-- Status --}}
         <div class="form-group">
             {!! Form::label('is_active', 'Status:') !!}
-            {!! Form::select('is_active', array(1 => 'Active', 0 => 'Inactive'), null, ['class'=>'form-control']) !!}
+            {!! Form::select('is_active', array(1 => 'Active', 0 => 'Inactive'), 0, ['class'=>'form-control']) !!}
         </div>{{-- EndStatus --}}
 
          {{-- File Upload --}}
