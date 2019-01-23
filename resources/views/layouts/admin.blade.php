@@ -123,11 +123,11 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i>Users<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/admin/users">All Users</a>
+                                    <a href="{{ route('admin.users.index') }}">All Users</a>
                                 </li>
 
                                 <li>
-                                    <a href="/admin/users/create">Create User</a>
+                                    <a href="{{ route('admin.users.create') }}">Create User</a>
                                 </li>
 
                             </ul>
@@ -154,11 +154,11 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i>Roles<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/admin/roles">All Roles</a>
+                                    <a href="{{ route('admin.roles.index') }}">All Roles</a>
                                 </li>
 
                                 <li>
-                                    <a href="/admin/roles/create">Create Role</a>
+                                    <a href="{{ route('admin.roles.create') }}">Create Role</a>
                                 </li>
 
                             </ul>

@@ -32,8 +32,8 @@
 
          {{-- File Upload --}}
         <div class="form-group">
-            {!! Form::label('photo', 'Photo:') !!}
-            {!! Form::file('photo', null, ['class'=>'form-control']) !!}
+            {!! Form::label('photo_id', 'Photo:') !!}
+            {!! Form::file('photo_id', null, ['class'=>'form-control']) !!}
         </div>{{-- EndFileUpload --}}
 
          {{-- Password --}}

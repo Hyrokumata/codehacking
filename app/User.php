@@ -24,8 +24,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    //RelationsShip - User-Role
+    //Relationship - User-Role
     public function role(){
         return $this->belongsTo('App\Model\Role');
     }
+
+    //Relationship - User-Photo
+    public function photo(){
+        return $this->belongsTo('App\Model\Photo');
+    }
+
 }
