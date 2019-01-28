@@ -32,7 +32,7 @@
                 @foreach ($users as $user)
                     <tr>
                         <td>{{ $user->id }}</td>
-                        <td><img src="{{ $user->photo ? "/images/" . $user->photo->path : "/images/defaultUser.svg" }}" class="avatar"></td>
+                        <td><img src="{{ $user->photo ? $user->photo->path : "/images/defaultUser.svg" }}" class="avatar"></td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->role ? $user->role->name : 'User has no role' }}</td>
                         <td>{{ $user->email }}</td>
@@ -61,7 +61,7 @@
                                 </button>
                             </a>  --}}
                             <a class="btn btn-primary" href="#" role="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                            <button class="btn btn-warning" type="submit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
+                            <a class="btn btn-warning" href="{{ route('admin.users.edit', $user->id) }}" role="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                             <button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
                         </td>
                     </tr>

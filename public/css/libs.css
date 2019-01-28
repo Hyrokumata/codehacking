@@ -8727,8 +8727,7 @@ table.dataTable thead .sorting:after {
 
 .avatar{
     vertical-align: middle;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+    width: 40px;
+    height: auto;
 }
 /*# sourceMappingURL=libs.css.map */

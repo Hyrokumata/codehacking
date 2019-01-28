@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Model\Role;
 use App\Http\Requests\UsersRequest;
 use App\Model\Photo;
+use Illuminate\Support\Facades\File;
 
 class AdminUsersController extends Controller
 {
@@ -54,7 +55,7 @@ class AdminUsersController extends Controller
         if($file = $request->file('photo_id')){
             
             // Criar um nome para o ficheiro incluindo o tempo de criação e o nome do utilizador
-            $name = time() . $file->getClientOriginalName();
+            $name = time() . '_' . $file->getClientOriginalName();
             // Colocar o ficheiro (photo) na pasta /public/images;
             $file->move('images', $name);
             // Criar um novo objecto photo
@@ -90,7 +91,11 @@ class AdminUsersController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.users.edit');
+        $user = User::findOrFail($id);
+
+        $roles = Role::lists('name', 'id')->all();
+
+        return view('admin.users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -100,9 +105,72 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UsersRequest $request, $id)
     {
-        return view('admin.users.update');
+
+        // Pegar na informação do utilizador a editar
+        $user = User::findOrFail($id);
+        // Pegar na informação do input
+        $input = $request->all();
+
+        // Verificar se o utilizador já possui photo
+        if(isset($user->photo)){
+            // Verificar se o utilizadr fez upload de uma photo nova
+            if($request->file('photo_id')!==null) {
+                // Pegar no ficheiro novo;
+                $fileNew = $request->file('photo_id');
+                // Pegar caminho photo antiga;
+                $fileOld = $user->photo->path;
+                // Pegar no id da photo existente;
+                $photoID = $user->photo->id;
+                // Apagar photo antiga da pasta
+                $fileOld = preg_replace("#[\/]#", "\\", $fileOld);
+                $filePath = public_path() . $fileOld;
+                unlink($filePath);
+                // Apagar a photo do user
+                $user->photo->delete();
+                /**
+                 * Atulizar novos dados
+                 */
+                // Criar nome para o ficheiro;
+                $name = time() . '_' . $fileNew->getClientOriginalName();
+                $fileNew->move('images', $name);
+                // Criar novo object photo
+                $photoNew = Photo::create(['path' => $name]);
+                $input['photo_id'] = $photoNew->id;
+                // encryptar a password
+                $input['password'] = bcrypt($request->password);
+                // atualizar dados do utilziador
+                $user->update($input);
+            } else {
+                // encryptar a password
+                $input['password'] = bcrypt($request->password);
+                $user->update($input);
+            }
+        } else {
+            if($fileNew = $request->file('photo_id')){
+                // Criar nome para o ficheiro;
+                $name = time() . '_' . $fileNew->getClientOriginalName();
+                $fileNew->move('images', $name);
+                // Criar novo object photo
+                $photoNew = Photo::create(['path' => $name]);
+                $input['photo_id'] = $photoNew->id;
+                // encryptar a password
+                $input['password'] = bcrypt($request->password);
+
+                $user->update($input);
+            } else {
+                // encryptar a password
+                $input['password'] = bcrypt($request->password);
+                $user->update($input);
+            }
+            
+        }
+        return redirect('admin/users/');
+
+
+
+        //return view('admin.user.index');
     }
 
     /**
