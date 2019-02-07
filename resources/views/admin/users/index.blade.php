@@ -45,7 +45,7 @@
                         <td>{{ $user->created_at->diffForHumans() }}</td>
                         <td>{{ $user->updated_at->diffForHumans() }}</td>
                         <td>
-                            {{--  <a href="#">
+                            {{-- <a href="#">
                                 <button type="button" class="btn btn-info btn-sm">
                                     <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                                 </button>
@@ -59,8 +59,7 @@
                                 <button type="button" class="btn btn-danger btn-sm">
                                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                 </button>
-                            </a>  --}}
-                            <a class="btn btn-primary" href="#" role="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                            </a>    --}}
                             <a class="btn btn-warning" href="{{ route('admin.users.edit', $user->id) }}" role="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                             <button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
                         </td>

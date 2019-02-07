@@ -7,6 +7,7 @@ use App\User;
 use App\Http\Requests;
 use App\Model\Role;
 use App\Http\Requests\UsersRequest;
+use App\Http\Requests\UsersEditRequest;
 use App\Model\Photo;
 use Illuminate\Support\Facades\File;
 
@@ -50,7 +51,15 @@ class AdminUsersController extends Controller
     public function store(UsersRequest $request)
     {
         
-        $inputRequest = $request->all();
+
+        if(trim($request->password == '')){
+
+            $input = $request->except('password');
+
+        }else {
+            $input = $request->all();
+            $input['password']= bcrypt($request->password);
+        }
 
         if($file = $request->file('photo_id')){
             
@@ -61,12 +70,14 @@ class AdminUsersController extends Controller
             // Criar um novo objecto photo
             $photo = Photo::create(['path' => $name]);
             // Adicionar ao utilizador o id da photo criada
-            $inputRequest['photo_id'] = $photo->id;
+            $input['photo_id'] = $photo->id;
         }
 
-        $inputRequest['password']= bcrypt($request->password);
+        
 
         User::create($inputRequest);
+
+        
 
 
         return redirect('/admin/users');
@@ -105,11 +116,20 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UsersRequest $request, $id)
+    public function update(UsersEditRequest $request, $id)
     {
 
         // Pegar na informação do utilizador a editar
         $user = User::findOrFail($id);
+
+        if(trim($request->password == '')){
+
+            $input = $request->except('password');
+
+        }else {
+            $input = $request->all();
+            $input['password']= bcrypt($request->password);
+        }
         // Pegar na informação do input
         $input = $request->all();
 
@@ -138,13 +158,9 @@ class AdminUsersController extends Controller
                 // Criar novo object photo
                 $photoNew = Photo::create(['path' => $name]);
                 $input['photo_id'] = $photoNew->id;
-                // encryptar a password
-                $input['password'] = bcrypt($request->password);
                 // atualizar dados do utilziador
                 $user->update($input);
             } else {
-                // encryptar a password
-                $input['password'] = bcrypt($request->password);
                 $user->update($input);
             }
         } else {
@@ -155,13 +171,9 @@ class AdminUsersController extends Controller
                 // Criar novo object photo
                 $photoNew = Photo::create(['path' => $name]);
                 $input['photo_id'] = $photoNew->id;
-                // encryptar a password
-                $input['password'] = bcrypt($request->password);
 
                 $user->update($input);
             } else {
-                // encryptar a password
-                $input['password'] = bcrypt($request->password);
                 $user->update($input);
             }
             
