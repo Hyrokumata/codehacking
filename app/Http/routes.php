@@ -23,9 +23,9 @@ Route::get('/admin', function(){
     return view('admin.index');
 });
 
-// Controller para AdminUsers
-Route::resource('admin/users', 'AdminUsersController');
-
-// Controller para AdminRoles
-Route::resource('admin/roles', 'AdminRolesController');
-
+Route::group(['middleware'=>'admin'], function(){
+    // Controller para AdminUsers
+    Route::resource('admin/users', 'AdminUsersController');
+    // Controller para AdminRoles
+    Route::resource('admin/roles', 'AdminRolesController');
+});
