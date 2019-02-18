@@ -73,12 +73,7 @@ class AdminUsersController extends Controller
             $input['photo_id'] = $photo->id;
         }
 
-        
-
-        User::create($inputRequest);
-
-        
-
+        User::create($input);
 
         return redirect('/admin/users');
     }
@@ -135,7 +130,7 @@ class AdminUsersController extends Controller
 
         // Verificar se o utilizador já possui photo
         if(isset($user->photo)){
-            // Verificar se o utilizadr fez upload de uma photo nova
+            // Verificar se o utilizador fez upload de uma photo nova
             if($request->file('photo_id')!==null) {
                 // Pegar no ficheiro novo;
                 $fileNew = $request->file('photo_id');
@@ -150,7 +145,7 @@ class AdminUsersController extends Controller
                 // Apagar a photo do user
                 $user->photo->delete();
                 /**
-                 * Atulizar novos dados
+                 * Atualizar novos dados
                  */
                 // Criar nome para o ficheiro;
                 $name = time() . '_' . $fileNew->getClientOriginalName();
@@ -158,7 +153,7 @@ class AdminUsersController extends Controller
                 // Criar novo object photo
                 $photoNew = Photo::create(['path' => $name]);
                 $input['photo_id'] = $photoNew->id;
-                // atualizar dados do utilziador
+                // atualizar dados do utilizador
                 $user->update($input);
             } else {
                 $user->update($input);
@@ -193,6 +188,8 @@ class AdminUsersController extends Controller
      */
     public function destroy($id)
     {
-        return view('admin.users.destroy');
+        User::findOrFail($id)->delete();
+
+        redirect('/admin/users/');
     }
 }

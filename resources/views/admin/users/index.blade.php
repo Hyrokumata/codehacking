@@ -45,23 +45,27 @@
                         <td>{{ $user->created_at->diffForHumans() }}</td>
                         <td>{{ $user->updated_at->diffForHumans() }}</td>
                         <td>
-                            {{-- <a href="#">
-                                <button type="button" class="btn btn-info btn-sm">
-                                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                                </button>
-                            </a>
-                            <a href="route('admin.users.edit')">
-                                <button type="button" class="btn btn-warning btn-sm">
-                                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                                </button>
-                            </a>
-                            <a href="#">
-                                <button type="button" class="btn btn-danger btn-sm">
-                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                                </button>
-                            </a>    --}}
-                            <a class="btn btn-warning" href="{{ route('admin.users.edit', $user->id) }}" role="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                            <button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                            <div class="col-sm-6">
+                                <a href="{{ route('admin.users.edit', $user->id) }}">
+                                    {{-- <button type="button" class="btn btn-warning"> --}}
+                                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="col-sm-6 ">
+                                {!! Form::open(['method' => 'DELETE', 'action' => ['AdminUsersController@destroy', $user->id]]) !!}
+
+                                    {!! Form::button(
+                                        '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>',
+                                        array(
+                                            'class' => 'btn btn-danger',
+                                            'type' => 'submit'
+                                        )
+                                    ) !!}
+                            
+                                {!! Form::close() !!}  
+                            </div>
+                            
                         </td>
                     </tr>
                 @endforeach
