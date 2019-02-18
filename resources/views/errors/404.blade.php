@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <style>
     *{
         transition: all 0.6s;
@@ -43,3 +46,4 @@
         <h1>Error 404</h1>
     </div>
 </div>
+@endsection

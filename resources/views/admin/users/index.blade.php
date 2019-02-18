@@ -2,6 +2,11 @@
 
 @section('content')
     
+@if (Session::has('info'))
+    <p class="bg-danger">{{ session('info') }}</p>
+@endif
+
+<h1>Users</h1>
     
     <table class="table table-striped table-responsive"> 
         <thead>
@@ -47,7 +52,7 @@
                         <td>
                             <div class="col-sm-6">
                                 <a href="{{ route('admin.users.edit', $user->id) }}">
-                                    {{-- <button type="button" class="btn btn-warning"> --}}
+                                    <button type="button" class="btn btn-warning">
                                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                                     </button>
                                 </a>

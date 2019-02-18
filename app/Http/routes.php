@@ -28,4 +28,6 @@ Route::group(['middleware'=>'admin'], function(){
     Route::resource('admin/users', 'AdminUsersController');
     // Controller para AdminRoles
     Route::resource('admin/roles', 'AdminRolesController');
+    // Controller para Posts
+    Route::resource('admin/posts', 'AdminPostsController');
 });
