@@ -24,14 +24,19 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    //Relationship - User-Role
+    //Relationship - User-Role (this have one role)
     public function role(){
         return $this->belongsTo('App\Model\Role');
     }
 
-    //Relationship - User-Photo
+    //Relationship - User-Photo (this have one photo)
     public function photo(){
         return $this->belongsTo('App\Model\Photo');
+    }
+
+     // Relationship User->Post (this have mane posts)
+     public function posts() {
+        return $this->hasMany('App\Model\Post');
     }
 
     // Method for verify if is admin
@@ -43,5 +48,7 @@ class User extends Authenticatable
 
         return false;
     }
+
+   
 
 }

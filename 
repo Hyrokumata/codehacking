@@ -1,0 +1,119 @@
+[33mcommit e2422f3965c15d018d4ce28b711b78024bc6acae[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Wed Feb 20 11:21:00 2019 -0100
+
+    creation post migration
+
+[33mcommit 2aac984829b95e1d89ce6633b96e0cae0939c096[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Mon Feb 18 12:31:13 2019 -0100
+
+    Post Controller, routes and views
+
+[33mcommit 31d73d99893559c295bf133cf22406c13ded4373[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Mon Feb 18 11:30:00 2019 -0100
+
+    Destroy users method
+
+[33mcommit df1db2a3e19ca004f7c49df3267a6e201ef0a430[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Fri Feb 8 14:25:53 2019 -0100
+
+    Page 404 error
+
+[33mcommit 17a64e6b6ed26e427eb29a786b1941477e994488[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Thu Feb 7 21:22:44 2019 -0100
+
+    Middleware Registration
+
+[33mcommit 8c0085e153f8a500cd38eff910e1a24f6bd81fa8[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Mon Jan 28 15:22:35 2019 -0100
+
+    Update user with photo, replace, delete situation
+
+[33mcommit 04a7e917951ed90e3b8c66b97b51fda3abcc6d0f[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Wed Jan 23 16:34:52 2019 -0100
+
+    Users with photos working
+
+[33mcommit aec3c0d79d56e120e3c66ae7191555d0751ffd37[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Mon Jan 21 16:18:06 2019 -0100
+
+    Adding Photo to User
+
+[33mcommit bab634d66cb6700a3f086c64859e432a4fa9aa74[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Mon Jan 21 14:46:08 2019 -0100
+
+    Role CRUD, fixing minor issues
+
+[33mcommit bd7b2350527f4fe1285701dbb1257f65ea9b8157[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Sat Jan 19 20:17:33 2019 -0100
+
+    Form input file field
+
+[33mcommit 247b229928f31934ee2eef33491f0742f5361091[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Mon Jan 14 15:49:55 2019 -0100
+
+    Populating the user Roles select
+
+[33mcommit 52812fa43fbcc7c911b3667ad495aeb2082ba59e[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Mon Jan 14 14:59:46 2019 -0100
+
+    Installing LaravelCollectiveHtml
+
+[33mcommit 88b85fa3b17fb07e41dd8a487638acba9ea5eea4[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Mon Jan 14 14:45:13 2019 -0100
+
+    Create User Page and Routes
+
+[33mcommit a4c65a31d228d4ab345f9cbffc4ca541ca4b89eb[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Thu Jan 10 20:16:20 2019 -0100
+
+    Displaying users from database
+
+[33mcommit 6b85a2908c969a594723864b51a9fbd8bbee219c[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Thu Jan 10 16:57:48 2019 -0100
+
+    Fixing Admin template, adding Gulp compiled
+
+[33mcommit f2aac89643806cdc1dc43b15cf4a55b8f90e46ec[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Thu Jan 10 16:39:11 2019 -0100
+
+    Install Admin template, configuring Gulp for Laravel 5.2
+
+[33mcommit 4ea195d53ba24f79318bcba928b256588f3d7d55[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Thu Jan 10 14:57:22 2019 -0100
+
+    Creating admin Controller
+
+[33mcommit 62fbcdba3707a2afac9b2cc4cc6ae634fbb3fac8[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Thu Jan 10 14:10:04 2019 -0100
+
+    Setting up Migrations and Models folder
+
+[33mcommit deab56a73bbe04ade30fec293ffdd2d99222e5e9[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Thu Jan 10 13:58:54 2019 -0100
+
+    Setting up views
+
+[33mcommit 3ece89a8bd9b827e8805c013d72c0bfaa692443e[m
+Author: Joao Silva <silva.joao@live.com.pt>
+Date:   Wed Jan 9 20:33:34 2019 -0100
+
+    Project start (1st commit)
