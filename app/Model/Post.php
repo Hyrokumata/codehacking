@@ -25,7 +25,7 @@ class Post extends Model
     }
 
     // Relation Post->Category (this have one category)
-    public function category(){
-        return $this->belongsTo('App\Model\Category');
-    }
+    // public function category(){
+    //     return $this->belongsTo('App\Model\Category');
+    // }
 }

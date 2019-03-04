@@ -7,7 +7,9 @@
         <thead>
             <tr>
                 <th>
-                    <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Add Post</button>
+                    <a href="{{ route('admin.posts.create') }}">
+                        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Add Post</button>
+                    </a>
                 </th>
             </tr>
             <tr>

@@ -1,20 +1,20 @@
 @extends('layouts.admin');
 
 @section('content')
-    <h1>Admin Roles Create</h1>
+    <h1>Admin Roles Edit - {{ $role->name }} </h1>
 
-    {!! Form::open(['method' => 'POST', 'action' => 'AdminRolesController@store']) !!}
+    {!! Form::model($role, ['method' => 'PATCH', 'action' => ['AdminRolesController@update', $role->id]]) !!}
         
     {{-- Name --}}
         <div class="form-group">
             {!! Form::label('name', 'Name:') !!}
-            {!! Form::text('name', '$role->name', ['class'=>'form-control']) !!}
+            {!! Form::text('name', $role->name, ['class'=>'form-control']) !!}
         </div>
     {{--  EndName  --}}
 
     {{-- Submit --}}
         <div class="form-group">
-            {!! Form::submit('Create Role', ['class'=>'btn btn-primary']) !!}
+            {!! Form::submit('Update Role', ['class'=>'btn btn-success']) !!}
         </div>
     {{-- EndSubmit --}}
 

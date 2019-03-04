@@ -67,7 +67,7 @@ class AdminRolesController extends Controller
      */
     public function edit($id)
     {
-        $role = Role::find($id);
+        $role = Role::findOrFail($id);
 
         return view('admin.roles.edit', compact('role'));
     }
@@ -81,7 +81,16 @@ class AdminRolesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $role = Role::findOrFail($id);
+
+        if(isset($request['name'])) {
+            $input = $request->all();
+            $role->update($input);
+        } 
+
+
+        return redirect('admin/roles/');
+
     }
 
     /**
