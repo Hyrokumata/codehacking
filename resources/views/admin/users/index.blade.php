@@ -23,15 +23,15 @@
         <table class="table table-striped table-responsive"> 
             <thead>
                 <tr>
-                <th>ID</th>
-                <th>Avatar</th>
-                <th>Name</th>
-                <th>Role</th>
-                <th>Email</th>
-                <th>Status</th>
-                <th>Created</th>
-                <th>Updated</th>
-                <th colspan="2">Actions</th>
+                    <th>ID</th>
+                    <th>Avatar</th>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Created</th>
+                    <th>Updated</th>
+                    <th colspan="2">Actions</th>
                 </tr>
             </thead>
             <tbody>
