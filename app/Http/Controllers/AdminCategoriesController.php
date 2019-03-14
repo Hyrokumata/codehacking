@@ -46,7 +46,7 @@ class AdminCategoriesController extends Controller
 
         Session::flash('info', 'The category has been created');
 
-        return redirect('/admin/categories');
+        return redirect('/admin/category');
     }
 
     /**
@@ -72,7 +72,7 @@ class AdminCategoriesController extends Controller
         
         $category = Category::findOrFail($id);
 
-        return view('admin.categories.edit', compact('category'));
+        return view('admin.category.edit', compact('category'));
     }
 
     /**

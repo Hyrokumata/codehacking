@@ -31,7 +31,9 @@
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->user ? $post->user->name : 'Post whitout user' }}</td>
                         <td>{{ $post->category ? $post->category->name : 'Post whitout category' }}</td>
-                        <td>{{ $post->photo ? $post->photo->path : 'Post whitout photo' }}</td>
+                        <td>
+                            <img src="{{ $post->photo ? $post->photo->path : "/images/defaultUser.svg" }}" class="avatar">
+                        </td>
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->body }}</td>
                         <td>{{ $post->created_at->diffForHumans() }}</td>

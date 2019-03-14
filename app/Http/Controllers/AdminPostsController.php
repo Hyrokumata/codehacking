@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Model\Post;
 use App\Http\Requests\PostsCreateRequest;
+use App\Model\Category;
+use Auth;
+use App\Model\Photo;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Session;
 
 class AdminPostsController extends Controller
 {
@@ -30,8 +35,10 @@ class AdminPostsController extends Controller
      */
     public function create()
     {
-        //
-        $categories = 'Options';
+        // $roles = Role::lists('name', 'id')->all();
+
+        $categories = Category::lists('name', 'id')->all();
+
         return view('admin.posts.create', compact('categories'));
     }
 
@@ -43,8 +50,28 @@ class AdminPostsController extends Controller
      */
     public function store(PostsCreateRequest $request)
     {
-        //
-        return $request->all();
+        $input = $request->all();
+
+        $user = Auth::user();
+
+        if($file = $request->file('photo_id')){
+
+             // Criar um nome para o ficheiro incluindo o tempo de criação e o nome do utilizador
+             $name = time() . '_' . $file->getClientOriginalName();
+             // Colocar o ficheiro (photo) na pasta /public/images;
+             $file->move('images', $name);
+             // Criar um novo objecto photo
+             $photo = Photo::create(['path' => $name]);
+             // Adicionar ao utilizador o id da photo criada
+             $input['photo_id'] = $photo->id;
+
+        }
+
+        $user->posts()->create($input);
+
+        Session::flash('info', 'The Post has been created!');
+
+        return redirect('/admin/posts');
     }
 
     /**
